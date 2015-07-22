@@ -20,9 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-  TSM: "Tranning Manager System"
-  TM: "Tranning Manager"
-  Course: "Course"
-  About: "About"
-  Login: "Log in"
+  application:
+    general:
+      TSM: "Tranning Manager System"
+      TM: "Tranning Manager"
+      course: "Course"
+      about: "About"
+      login: "Log in"
+      logout: "Log out"
+    buttons:
+    flash:
+      login_success: "Login successfully"
+      login_failed: "Invalid email or password!"
+
+  sessions:
+    new:
+      email: "Email"
+      password: "Password"
+      remember_me: "Remember me"
