@@ -1,0 +1,17 @@
+<% provide :title, t("application.general.indexSub") %>
+<div class="page-header">
+  <%= link_to t("application.buttons.new_sub"), new_supervisor_subject_path,
+    class: "btn btn-default pull-right" %>
+  <h2><%= t "application.general.indexSub" %></h2>
+</div>
+<div class="row">
+  <% @subjects.each do |subject| %>
+    <div class="col-lg-4">
+      <h3><%= subject.name %></h3>
+      <p><%= subject.instruction.truncate(70) %></p>
+      <p><%= link_to t("application.buttons.view_sub"), [:supervisor, subject],
+        class: "btn btn-primary" %></p>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate %>

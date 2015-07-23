@@ -13,6 +13,7 @@ gem "sdoc",         "0.4.0", group: :doc
 gem "bcrypt", "~> 3.1.7"
 gem "carrierwave"
 gem "mini_magick"
+gem "will_paginate"
 
 group :development do
   gem "sqlite3",     "1.3.9"

@@ -1,0 +1,11 @@
+<% provide :title, t("application.general.new_sub") %>
+<div class="page-header">
+  <%= link_to t("application.buttons.cancel"), supervisor_subjects_path,
+    class: "btn btn-default pull-right" %>
+  <h3><%= t("application.general.new_sub") %></h3>
+</div>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= render "form" %>
+  </div>
+</div>

@@ -7,13 +7,22 @@ en:
       about: "About"
       login: "Log in"
       logout: "Log out"
+      new_sub: "Create new subject"
+      indexSub: "All Subjects"
+      subject: "Subject"
     buttons:
       save: "Save"
+      submit: "Submit"
+      reset: "Reset"
+      cancel: "cancel"
+      new_sub: "New Subject"
+      view_sub: "View details >>"
     flash:
       login_success: "Login successfully"
       login_failed: "Invalid email or password!"
       course_created: "Course has been successfully created!"
       user_updated: "Edit profile successfully"
+      create_subject: "Create subject successfully"
 
   sessions:
     new:
@@ -46,3 +55,6 @@ en:
       save_change: "Save change"
       upload_image: "Upload a different photo..."
       edit_profile: "Edit profile"
+
+  subjects:
+
