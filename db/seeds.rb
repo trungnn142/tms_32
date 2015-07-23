@@ -44,3 +44,39 @@ Course.create([
       end_date: "2015-12-27"
     }
   ])
+
+Subject.create([
+    {
+      name: "Rails for Zombies Redux",
+      instruction:  "Learn Ruby on Rails, an open-source framework for the Ruby
+        programming language. Rails for Zombies will teach you all the Rails
+        basics with a zombie flair."
+    },
+    {
+      name: "Rails for Zombies 2",
+      instruction:  "Learn more Rails with this sequel to the infamous Rails for
+        Zombies course. Increase your Ruby on Rails knowledge with even more zombie learning."
+    },
+    {
+      name: "Surviving APIs with Rails",
+      instruction: "Learn how to build and test REST APIs using Ruby on Rails.
+        See how to leverage the HTTP protocol to create robust web APIs that can
+        serve different client applications at the same time."
+    },
+    {
+      name: "Rails 4 Patterns",
+      instruction: "Learn helpful patterns and techniques for building and
+        maintaining complex Rails applications. Make your application easily
+        scale in size and complexity."
+    },
+    {
+      name: "Rails Testing for Zombies",
+      instruction: "Learn Rails testing for your applications with these testing
+        fundamentals. Brush up on testing best practices with Rails Testing for Zombies."
+    },
+    {
+      name: "Testing with RSpec",
+      instruction: "Learn to use this trusted testing framework for Ruby
+        applications. Brush up on testing best practices with our Testing with RSpec course."
+    }
+  ])
