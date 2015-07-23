@@ -87,12 +87,13 @@ hr {
   background-color: #1abc9c;
   border-color: #16a085;
 
-  .navbar-nav > li > a {
-    color: white;
-  }
-
-  .navbar-nav > li > a:hover {
-    color: #222222;
+  .navbar-nav a {
+    color: #fff !important;
+    background: transparent !important;
+    &:hover, &:active, &:focus {
+      color: #222222 !important;
+      background: transparent !important;
+    }
   }
 
   .navbar-brand {
@@ -102,8 +103,21 @@ hr {
     color: white;
   }
 
+  .dropdown-menu {
+    background: #1abc9c;
+  }
+
   .navbar-toggle {
     border-color: transparent;
+  }
+
+  .profile-picture {
+    img {
+      border-radius: 50%;
+      margin-top: -8px;
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 
