@@ -6,13 +6,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to t("TM"), root_path , class: "navbar-brand" %>
+      <%= link_to t("application.general.TM"), root_path , class: "navbar-brand" %>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("Course"), "#" %></li>
-        <li><%= link_to t("About"), about_path %></li>
-        <li><%= link_to t("Login"), "#" %></li>
+        <li><%= link_to t("application.general.course"), "#" %></li>
+        <li><%= link_to t("application.general.about"), about_path %></li>
+        <% if logged_in? %>
+          <li><%= link_to t("application.typo.logout"), logout_path, method: "delete" %></li>
+        <% else %>
+          <li><%= link_to t("application.general.login"), login_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

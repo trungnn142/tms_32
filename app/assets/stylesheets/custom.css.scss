@@ -1,6 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #ffffff;
   font-weight: 400;
@@ -8,6 +12,8 @@ body {
   color: #555;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
+  min-height: 100%;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -103,9 +109,20 @@ hr {
 
 footer {
   color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   .footer-below {
     padding: 25px 0;
     background-color: #233140;
   }
+}
+
+.login-panel {
+  margin: 10px auto;
+  float: none;
+}
+ul {
+  list-style-type: none;
 }
