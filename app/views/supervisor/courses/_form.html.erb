@@ -1,0 +1,32 @@
+<%= form_for [:supervisor, @course] do |f| %>
+  <%= render "shared/form_errors", object: @course %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", rows: 10 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date, class: "form-control" %>
+  </div>
+
+  <div class="check_box">
+    <%= f.label :is_active do %>
+      <%= f.check_box :is_active %>
+      <%= t "courses.general.active" %>
+    <% end %>
+  </div>
+
+  <%= f.submit t("application.buttons.save"), class: "btn btn-lg btn-primary" %>
+<% end %>

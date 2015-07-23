@@ -1,0 +1,142 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  color: #555;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  min-height: 100%;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #333;
+}
+
+h1 {
+  font-size: 35px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#about {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+p {
+  line-height: 28px;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.centered {
+  text-align: center;
+}
+
+a {
+  color: #1abc9c;
+  word-wrap: break-word;
+  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+  transition: color 0.1s ease-in, background 0.1s ease-in;
+
+  &:hover,
+  &:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+  }
+  &:before,
+  &:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+  }
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.navbar {
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+
+.navbar-inverse {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color: #1abc9c;
+  border-color: #16a085;
+
+  .navbar-nav a {
+    color: #fff !important;
+    background: transparent !important;
+    &:hover, &:active, &:focus {
+      color: #222222 !important;
+      background: transparent !important;
+    }
+  }
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+  }
+
+  .dropdown-menu {
+    background: #1abc9c;
+  }
+
+  .navbar-toggle {
+    border-color: transparent;
+  }
+
+  .profile-picture {
+    img {
+      border-radius: 50%;
+      margin-top: -8px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+footer {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  .footer-below {
+    padding: 25px 0;
+    background-color: #233140;
+  }
+}
+
+.login-panel {
+  margin: 10px auto;
+  float: none;
+}
+ul {
+  list-style-type: none;
+}

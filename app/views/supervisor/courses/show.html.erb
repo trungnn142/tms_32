@@ -1,0 +1,18 @@
+<h1>
+  <%= @course.name %>
+  <% if @course.is_active %>
+    <span class="label label-primary"><%= t ".active" %></span>
+  <% end %>
+</h1>
+
+<p>
+  <strong><%= t ".start_date" %>:</strong>
+  <%= @course.start_date.strftime "%d-%m-%Y" %>
+</p>
+
+<p>
+  <strong><%= t ".end_date" %>: </strong>
+  <%= @course.end_date.strftime "%d-%m-%Y" %>
+</p>
+
+<p><%= @course.description %></p>
