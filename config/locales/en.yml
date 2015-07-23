@@ -13,6 +13,7 @@ en:
       login_success: "Login successfully"
       login_failed: "Invalid email or password!"
       course_created: "Course has been successfully created!"
+      user_updated: "Edit profile successfully"
 
   sessions:
     new:
@@ -37,3 +38,11 @@ en:
       new_course: "Create new course"
     create:
       date_invalid: "can't be greater than end date"
+
+  users:
+    edit:
+      edit_profile: "Edit profile"
+      profile_info: "Profile info"
+      save_change: "Save change"
+      upload_image: "Upload a different photo..."
+      edit_profile: "Edit profile"
