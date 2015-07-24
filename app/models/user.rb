@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
+  before_validation :default_password
+
   enum role: [:trainee, :supervisor]
 
   attr_accessor :remember_token
+
   has_many :course_users
   has_many :courses, through: :course_users
   has_many :user_subjects
@@ -40,6 +43,11 @@ class User < ActiveRecord::Base
 
   def authenticated? remember_token
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  private
+  def default_password
+    self.password = "Tms32@2015" if self.trainee?
   end
 
 end
