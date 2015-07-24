@@ -1,4 +1,12 @@
 en:
+  activerecord:
+    attributes:
+      course:
+        name: "Name"
+        description: "Description"
+        start_date: "Start date"
+        end_date: "End date"
+
   application:
     general:
       TSM: "Tranning Manager System"
@@ -13,8 +21,11 @@ en:
     buttons:
       save: "Save"
       submit: "Submit"
+      edit: "Edit"
+      back: "Back"
+      delete: "Delete"
       reset: "Reset"
-      cancel: "cancel"
+      cancel: "Cancel"
       new_sub: "New Subject"
       view_sub: "View details >>"
     flash:
@@ -23,6 +34,15 @@ en:
       course_created: "Course has been successfully created!"
       user_updated: "Edit profile successfully"
       create_subject: "Create subject successfully"
+      course_updated: "Course has been successfully updated"
+      course_deleted: "Course has been successfully deleted"
+      update_subject: "Subject has been successfully updated"
+      del_subject: "Course has been successfully deleted"
+      trainee_created: "Trainee has been successfully created"
+      course_deleted_failed: "Failed to delete course"
+      subject_deleted_failed: "Failed to delete subject"
+    messages:
+      confirm: "Are you sure?"
 
   sessions:
     new:
@@ -30,21 +50,9 @@ en:
       password: "Password"
       remember_me: "Remember me"
 
-  activerecord:
-    attributes:
-      course:
-        name: "Name"
-        description: "Description"
-        start_date: "Start date"
-        end_date: "End date"
-
   courses:
     general:
       active: "Active"
-    show:
-      start_date: "Start date"
-      end_date: "End date"
-      new_course: "Create new course"
     create:
       date_invalid: "can't be greater than end date"
 
@@ -57,4 +65,31 @@ en:
       edit_profile: "Edit profile"
 
   subjects:
+
+  supervisor:
+    courses:
+      show:
+        start_date: "Start date"
+        end_date: "End date"
+        new_course: "Create new course"
+      index:
+        btn_new: "Create New Course"
+        title: "All courses"
+        name: "Name"
+        description: "Description"
+      new:
+        title: "New course"
+      edit:
+        title: "Edit course"
+
+    subjects:
+      edit:
+        title: "Edit Subject"
+
+    users:
+      new:
+        title: "Create trainee"
+        name: "Name"
+        email: "Email"
+
 

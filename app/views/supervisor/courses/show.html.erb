@@ -1,7 +1,7 @@
 <h1>
   <%= @course.name %>
   <% if @course.is_active %>
-    <span class="label label-primary"><%= t ".active" %></span>
+    <span class="label label-primary"><%= t "courses.general.active" %></span>
   <% end %>
 </h1>
 
@@ -16,3 +16,7 @@
 </p>
 
 <p><%= @course.description %></p>
+
+<br/>
+<%= link_to t("application.buttons.back"), supervisor_courses_path,
+  class: "btn btn-success" %>
