@@ -1,0 +1,17 @@
+<h1><%= t ".title" %></h1>
+<%= form_for [:supervisor, @user] do |f| %>
+  <%= render "shared/form_errors", object: @user %>
+  <%= f.hidden_field :role, value: "trainee" %>
+  <div class="form-group">
+    <%= f.text_field :name, class: "form-control", placeholder: t(".name") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.email_field :email, class: "form-control", placeholder: t(".email") %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit t("application.buttons.save"), class: "btn btn-lg btn-success" %>
+  </div>
+
+<% end %>
