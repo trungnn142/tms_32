@@ -1,4 +1,5 @@
 <%= form_for [:supervisor, @subject] do |f| %>
+  <%= render "shared/form_errors", object: f.object %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
@@ -7,6 +8,10 @@
     <%= f.label :instruction %>
     <%= f.text_area :instruction, class: "form-control" %>
   </div>
+  <%= f.fields_for :tasks do |builder| %>
+    <%= render "task_fields", f: builder %>
+  <% end %>
+  <p><%= link_to_add_fields t("new_task"), f, :tasks %></p>
   <ul class="list-inline">
     <li>
       <%= f.submit t("application.buttons.submit"), class: "btn btn-success" %>

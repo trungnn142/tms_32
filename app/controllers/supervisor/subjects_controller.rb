@@ -7,6 +7,7 @@ class Supervisor::SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new
+    @tasks = @subject.tasks.build
   end
 
   def create
@@ -45,7 +46,8 @@ class Supervisor::SubjectsController < ApplicationController
 
   private
   def subject_params
-    params.require(:subject).permit :name, :instruction
+    params.require(:subject).permit :name, :instruction,
+      tasks_attributes: [:id, :name, :order, :_destroy]
   end
 
   def load_subject

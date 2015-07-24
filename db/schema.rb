@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20150723041130) do
   add_index "course_subjects", ["course_id"], name: "index_course_subjects_on_course_id"
   add_index "course_subjects", ["subject_id"], name: "index_course_subjects_on_subject_id"
 
+  create_table "course_users", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "user_id"
+  end
+
+  add_index "course_users", ["course_id"], name: "index_course_users_on_course_id"
+  add_index "course_users", ["user_id"], name: "index_course_users_on_user_id"
+
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -43,14 +51,6 @@ ActiveRecord::Schema.define(version: 20150723041130) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  create_table "courses_users", id: false, force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "user_id"
-  end
-
-  add_index "courses_users", ["course_id"], name: "index_courses_users_on_course_id"
-  add_index "courses_users", ["user_id"], name: "index_courses_users_on_user_id"
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
