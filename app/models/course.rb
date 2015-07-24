@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  has_many :course_users
+  has_many :course_users, dependent: :destroy, inverse_of: :course
   has_many :users, through: :course_users
   has_many :course_subjects
   has_many :subjects, through: :course_subjects
@@ -10,6 +10,18 @@ class Course < ActiveRecord::Base
   validate :start_date_cannot_be_greater_than_end_date
 
   scope :latest, -> {order created_at: :desc}
+
+  accepts_nested_attributes_for :course_users, allow_destroy: true,
+    reject_if: proc {|a| a[:user_id].blank? || a[:user_id] == "0"}
+
+  def add_user user
+    course_user = course_users.create user_id: user.id
+    course_user.valid?
+  end
+
+  def remove_user user
+    course_users.find_by(user_id: user.id).destroy
+  end
 
   def start_date_cannot_be_greater_than_end_date
     if start_date > end_date

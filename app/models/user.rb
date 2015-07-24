@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i},
     uniqueness: {case_sensitive: false}
 
+  scope :trainees, -> {where role: "trainee"}
+  scope :not_member_of, ->(course) {where("id NOT IN (SELECT user_id FROM
+    course_users WHERE course_id = ?)", course.id)}
+
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? Bcrypt::Engine::MIN_COST : BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)

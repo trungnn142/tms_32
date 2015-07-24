@@ -1,0 +1,16 @@
+<h1>
+  <%= t ".title", course: @course.name %>
+  <span>
+    <%= link_to t("application.buttons.view_user"),
+      supervisor_course_course_user_path(@course), class: "btn btn-primary" %>
+  </span>
+</h1>
+
+<% if @users.count > 0 %>
+  <%= render "form" %>
+<% else %>
+  <h3>
+    <%= t ".no_trainee" %>
+  </h3>
+<% end %>
+

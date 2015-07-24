@@ -1,0 +1,28 @@
+<%= form_for @course, url: supervisor_course_path(@course, type: :manage_users) do |f| %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th><%= t ".name" %></th>
+        <th><%= t ".email" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if action_name == "new" %>
+        <%= render "add_fields", f: f %>
+      <% elsif action_name == "show" %>
+        <%= render "supervisor/course_users/remove_fields", f: f %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h5>
+    <strong><%= t "supervisor.course_users.general.hint_#{action_name}" %></strong>
+  </h5>
+
+  <%= f.submit t("application.buttons.user_#{action_name}"),
+    class: "btn btn-lg btn-warning", data: {confirm: t("application.messages.confirm")} %>
+<% end %>
+
+<%= will_paginate @users %>

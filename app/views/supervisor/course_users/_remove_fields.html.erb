@@ -1,0 +1,18 @@
+<%= f.fields_for :course_users do |builder| %>
+  <tr>
+    <td>
+      <%= builder.check_box :_destroy %>
+    </td>
+    <td>
+      <%= builder.object.user.name %>
+    </td>
+    <td>
+      <%= builder.object.user.email %>
+    </td>
+    <td id="update_user_<%=builder.object.user.id%>">
+      <%= link_to t("application.buttons.remove"),
+        supervisor_course_course_user_path(@course, user_id: builder.object.user), method: :delete,
+        class: "btn btn-danger", data: {confirm: t("application.messages.confirm"), remote: true} %>
+    </td>
+  </tr>
+<% end %>

@@ -1,9 +1,24 @@
 <tr>
-  <td><%= course.name %></td>
-  <td><%= course.description.truncate(100) %></td>
-  <td><%= link_to t("application.buttons.edit"),
-    edit_supervisor_course_path(course), class: "btn btn-primary" %></td>
-  <td><%= link_to t("application.buttons.delete"),
-    supervisor_course_path(course), method: :delete, class: "btn btn-danger",
-    data: {confirm: t("application.messages.confirm")} %></td>
+  <td>
+    <%= course.name %>
+  </td>
+  <td>
+    <%= course.description.truncate(100) %>
+  </td>
+  <td>
+    <%= link_to course.users.count, supervisor_course_course_user_path(course)  %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.add_user"),
+      new_supervisor_course_course_user_path(course), class: "btn btn-success" %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.edit"),
+      edit_supervisor_course_path(course), class: "btn btn-primary" %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.delete"),
+      supervisor_course_path(course), method: :delete, class: "btn btn-danger",
+      data: {confirm: t("application.messages.confirm")} %>
+  </td>
 </tr>
