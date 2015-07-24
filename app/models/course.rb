@@ -9,6 +9,8 @@ class Course < ActiveRecord::Base
   validates :description, presence: true, length: {minimum: 100}
   validate :start_date_cannot_be_greater_than_end_date
 
+  scope :latest, -> {order created_at: :desc}
+
   def start_date_cannot_be_greater_than_end_date
     if start_date > end_date
       errors.add(:start_date, t("courses.create.date_invalid"))
