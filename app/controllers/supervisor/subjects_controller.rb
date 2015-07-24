@@ -22,10 +22,25 @@ class Supervisor::SubjectsController < ApplicationController
   def edit
   end
 
+  def update
+    if @subject.update_attributes subject_params
+      flash[:info] = t "application.flash.update_subject"
+      redirect_to [:supervisor, @subject]
+    else
+      render :edit
+    end
+  end
+
   def show
   end
 
   def destroy
+    if @subject.destroy
+      flash[:success] = t "application.flash.del_subject"
+      redirect_to supervisor_subjects_url
+    else
+      flash[:error] = t "application.flash.subject_deleted_failed"
+    end
   end
 
   private

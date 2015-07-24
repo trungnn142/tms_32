@@ -1,7 +1,16 @@
 <% provide :title, t("application.general.subject") %>
 <div class="page-header">
-  <%= link_to t("application.buttons.new_sub"), new_supervisor_subject_path,
-    class: "btn btn-default pull-right" %>
+  <ul class="list-inline pull-right">
+    <li>
+      <%= link_to t("application.buttons.edit"),
+        edit_supervisor_subject_path(@subject), class: "btn btn-primary" %>
+    </li>
+    <li>
+      <%= link_to t("application.buttons.delete"), [:supervisor, @subject],
+        method: :delete, data: {confirm: t("application.messages.confirm")},
+        class: "btn btn-danger" %>
+    </li>
+  </ul>
   <h2><%= @subject.name %></h2>
 </div>
 <div class="row">
