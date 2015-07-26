@@ -10,6 +10,7 @@ class Course < ActiveRecord::Base
   validate :start_date_cannot_be_greater_than_end_date
 
   scope :latest, -> {order created_at: :desc}
+  scope :active, -> {where is_active: true}
 
   accepts_nested_attributes_for :course_users, allow_destroy: true,
     reject_if: proc {|a| a[:user_id].blank? || a[:user_id] == "0"}
