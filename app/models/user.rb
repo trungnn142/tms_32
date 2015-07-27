@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
     uniqueness: {case_sensitive: false}
 
   scope :trainees, -> {where role: "trainee"}
+
   scope :not_member_of, ->(course) {where("id NOT IN (SELECT user_id FROM
     course_users WHERE course_id = ?)", course.id)}
 
