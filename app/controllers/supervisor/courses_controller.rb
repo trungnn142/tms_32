@@ -26,7 +26,11 @@ class Supervisor::CoursesController < ApplicationController
   end
 
   def update
-    params[:type] == "manage_users" ? manage_users : update_course
+    if params[:type] == "manage_users"
+      manage_users
+    else
+      update_course
+    end
   end
 
   def destroy
@@ -35,7 +39,6 @@ class Supervisor::CoursesController < ApplicationController
     else
       flash[:danger] = t "application.flash.course_deleted_failed"
     end
-
     redirect_to supervisor_courses_path
   end
 
@@ -66,7 +69,7 @@ class Supervisor::CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit :name, :description, :start_date, :end_date,
-      :is_active
+      :is_active, subject_ids: []
   end
 
   def course_users_params

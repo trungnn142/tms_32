@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root "courses#index"
     resources :courses do
       resource :course_user, except: [:edit, :update]
+      resource :course_subject, only: [:show]
     end
     resources :subjects
     resources :users

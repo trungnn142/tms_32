@@ -54,7 +54,7 @@ class Supervisor::UsersController < ApplicationController
 
   def authorize_supervisor
     unless current_user.supervisor?
-      flash[:danger] = t "permission_denied"
+      flash[:danger] = t "application.flash.permission_denied"
       redirect_to root_url
     end
   end
