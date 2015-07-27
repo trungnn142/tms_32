@@ -54,6 +54,7 @@ en:
       user_remove_failed: "Failed to remove %{user}"
       users_updated: "Trainees of %{course} have been updated"
       users_updated_failed: "Failed to update trainees of %{course}"
+      required_login: "You must login to view this resources"
     messages:
       confirm: "Are you sure?"
 
@@ -68,6 +69,12 @@ en:
       active: "Active"
     create:
       date_invalid: "can't be greater than end date"
+    index:
+      course: "course"
+      from: "From"
+      to: "to"
+      no_course: "You haven't been assigned to any course"
+      enrolled_in: "You have been assigned to %{course_count}"
 
   users:
     edit:
@@ -115,5 +122,3 @@ en:
         title: "Create trainee"
         name: "Name"
         email: "Email"
-
-

@@ -7,7 +7,7 @@ class Supervisor::SubjectsController < ApplicationController
 
   def new
     @subject = Subject.new
-    @tasks = @subject.tasks.build
+    @subject.tasks.build
   end
 
   def create
@@ -33,6 +33,7 @@ class Supervisor::SubjectsController < ApplicationController
   end
 
   def show
+    @tasks = @subject.tasks
   end
 
   def destroy
