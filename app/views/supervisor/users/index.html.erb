@@ -1,0 +1,33 @@
+<h1>
+  <%= t ".all_trainees" %>
+</h1>
+<span>
+  <%= link_to t("application.buttons.create_trainee"), new_supervisor_user_path, class: "btn btn-primary" %>
+</span>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t ".name" %></th>
+      <th><%= t ".email" %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <%= link_to t("application.buttons.edit"),
+            edit_supervisor_user_path(user), class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= link_to t("application.buttons.remove"), supervisor_user_path(user),
+            method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>
