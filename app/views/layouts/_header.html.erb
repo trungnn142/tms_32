@@ -11,7 +11,7 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("application.general.course"), "#" %></li>
+        <li><%= link_to t("application.general.course"), courses_path %></li>
         <li><%= link_to t("application.general.about"), about_path %></li>
         <% if logged_in? %>
           <li class="dropdown">

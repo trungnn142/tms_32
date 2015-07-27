@@ -1,19 +1,29 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 
 html {
   height: 100%;
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #fafafa;
   font-weight: 400;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #555;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
   min-height: 100%;
   position: relative;
+}
+
+.block {
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -123,6 +133,7 @@ hr {
 
 #main {
   padding-bottom: 90px;
+  padding-top: 10px;
 }
 
 .flash {
