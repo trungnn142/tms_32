@@ -9,7 +9,9 @@
 <body>
   <%= render "layouts/header" %>
   <div class="container" id="main">
-    <%= render "layouts/flash" %>
+    <div id="flash">
+      <%= render "layouts/flash" %>
+    </div>
     <%= yield %>
   </div>
   <%= render "layouts/footer" %>

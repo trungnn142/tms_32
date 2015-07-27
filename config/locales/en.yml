@@ -28,6 +28,13 @@ en:
       cancel: "Cancel"
       new_sub: "New Subject"
       view_sub: "View details >>"
+      add_user: "Add User"
+      view_user: "View All Users"
+      add: "Add"
+      remove: "Remove"
+      update_users: "Update"
+      user_new: "Add Users"
+      user_show: "Remove Users"
     flash:
       login_success: "Login successfully"
       login_failed: "Invalid email or password!"
@@ -41,6 +48,12 @@ en:
       trainee_created: "Trainee has been successfully created"
       course_deleted_failed: "Failed to delete course"
       subject_deleted_failed: "Failed to delete subject"
+      user_added: "%{user} has been successfully added to %{course}"
+      user_add_failed: "Failed to add %{user} to %{course}"
+      user_removed: "%{user} has been successfully removed from %{course}"
+      user_remove_failed: "Failed to remove %{user}"
+      users_updated: "Trainees of %{course} have been updated"
+      users_updated_failed: "Failed to update trainees of %{course}"
     messages:
       confirm: "Are you sure?"
 
@@ -77,11 +90,22 @@ en:
         title: "All courses"
         name: "Name"
         description: "Description"
+        trainee_count: "Number of trainees"
       new:
         title: "New course"
       edit:
         title: "Edit course"
 
+    course_users:
+      general:
+        hint_new: "Check checkboxes to add multiple trainees"
+        hint_show: "Check checkboxes to remove multiple trainees"
+      new:
+        title: "Add User To %{course}"
+        no_trainee: "No more user to add"
+      show:
+        title: "All Users Of %{course}"
+        no_trainee: "No user found in this course"
     subjects:
       edit:
         title: "Edit Subject"
