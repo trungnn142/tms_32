@@ -9,6 +9,9 @@ class Course < ActiveRecord::Base
   validates :description, presence: true, length: {minimum: 100}
   validate :start_date_cannot_be_greater_than_end_date
 
+  accepts_nested_attributes_for :course_subjects, allow_destroy: true,
+    reject_if: proc {|a| a[:subject_id].blank? || a[:subject_id] == "0"}
+
   scope :latest, -> {order created_at: :desc}
   scope :active, -> {where is_active: true}
 

@@ -24,7 +24,7 @@
         </td>
         <td>
           <%= link_to t("application.buttons.remove"), supervisor_user_path(user),
-            method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            method: :delete, data: {confirm: t("application.messages.confirm")}, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in
-  before_action :correct_user
+  before_action :authenticate_user, only: [:edit, :update, :show]
+  before_action :correct_user, only: [:edit, :update]
 
   def edit
   end
@@ -17,14 +17,15 @@ class UsersController < ApplicationController
   private
   def correct_user
     @user = User.find params[:id]
-    redirect_to root_url unless current_user? @user
-  end
-
-  def logged_in
-    redirect_to root_url unless logged_in?
+    redirect_to root_url unless current_user? load_user
   end
 
   def user_params
     params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar
   end
+
+  def load_user
+    @user = User.find params[:id]
+  end
+
 end

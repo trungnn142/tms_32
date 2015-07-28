@@ -1,0 +1,24 @@
+<h1><%= t ".subjects" %></h1>
+
+<%= form_for @course, url: supervisor_course_path(@course) do |f| %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t ".name" %></th>
+        <th><%= t ".instruction" %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= collection_check_boxes :course, :subject_ids, @subjects, :id, :name do |b| %>
+        <tr>
+          <td><%= b.object.name %></td>
+          <td><%= b.object.instruction %></td>
+          <td><%= b.check_box %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= f.submit t("application.buttons.save"), class: "btn btn-success btn-lg" %>
+
+<% end %>
