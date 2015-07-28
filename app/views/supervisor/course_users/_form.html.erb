@@ -1,28 +1,32 @@
+<p>
+  <%= t "supervisor.course_users.general.hint" %>
+</p>
+
 <%= form_for @course, url: supervisor_course_path(@course, type: :manage_users) do |f| %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th><%= t ".name" %></th>
-        <th><%= t ".email" %></th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% if action_name == "new" %>
-        <%= render "add_fields", f: f %>
-      <% elsif action_name == "show" %>
-        <%= render "supervisor/course_users/remove_fields", f: f %>
-      <% end %>
-    </tbody>
-  </table>
+  <div>
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#trainees" aria-controls="trainees" role="tab"
+          data-toggle="tab"><%= t "application.tabs.trainees" %></a>
+      </li>
+      <li role="presentation">
+        <a href="#supervisors" aria-controls="supervisors" role="tab"
+          data-toggle="tab"><%= t "application.tabs.supervisors" %></a>
+      </li>
+    </ul>
 
-  <h5>
-    <strong><%= t "supervisor.course_users.general.hint_#{action_name}" %></strong>
-  </h5>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="trainees">
+        <%= render "listing", users: @trainees,
+          course_users: f.object.course_users.trainees, f: f %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="supervisors">
+        <%= render "listing", users: @supervisors,
+          course_users: f.object.course_users.supervisors, f: f %>
+      </div>
+    </div>
+  </div>
 
-  <%= f.submit t("application.buttons.user_#{action_name}"),
+  <%= f.submit t("application.buttons.update"),
     class: "btn btn-lg btn-warning", data: {confirm: t("application.messages.confirm")} %>
 <% end %>
-
-<%= will_paginate @users %>

@@ -1,0 +1,14 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t ".name" %></th>
+      <th><%= t ".email" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render "fields", f: f, users: users %>
+  </tbody>
+</table>
+
+<%= will_paginate @users %>

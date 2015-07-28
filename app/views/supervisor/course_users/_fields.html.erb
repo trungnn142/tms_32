@@ -1,0 +1,23 @@
+<% users.each do |user| %>
+  <%= f.fields_for :course_users, @course.course_users.build do |builder| %>
+    <tr>
+      <% if @course.users.include? user %>
+        <td>
+          <%= builder.hidden_field :id,
+            value: @course.course_users.has_user(user).id%>
+          <%= builder.check_box :_destroy, {}, false, 1 %>
+        </td>
+      <% else %>
+        <td>
+        <%= builder.check_box :user_id, {}, user.id %>
+        </td>
+      <% end %>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+    </tr>
+  <% end %>
+<% end %>
