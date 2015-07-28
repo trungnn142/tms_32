@@ -20,6 +20,8 @@ en:
       new_sub: "Create new subject"
       indexSub: "All Subjects"
       subject: "Subject"
+      activity_log: "Activity Log"
+      timeago: "%{time} ago"
     buttons:
       save: "Save"
       submit: "Submit"
@@ -90,6 +92,13 @@ en:
       to: "to"
       no_course: "You haven't been assigned to any course"
       enrolled_in: "You have been assigned to %{course_count}"
+
+  activities:
+    general:
+      course_assignment: "was assigned to %{target}"
+      course_removal: "was removed from %{target}"
+      subject_completed: "completed the subject %{target}"
+      task_finished: "finished the task %{target}"
 
   users:
     edit:

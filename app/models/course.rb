@@ -6,6 +6,7 @@ class Course < ActiveRecord::Base
   has_many :user_subjects
   has_many :user_tasks, through: :user_subjects
   has_many :tasks, through: :subjects
+  has_many :activities, dependent: :nullify
 
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 100}

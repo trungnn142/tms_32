@@ -1,35 +1,43 @@
 <div class="row course-detail">
   <div class="col-md-12">
-    <div class="block">
-      <h1 class="center">
-        <%= @course.name %>
-      </h1>
-      <p>
-        <%= t ".supervisors" %>
-        <% @supervisors.each do |supervisor| %>
-          <%= link_to supervisor do %>
-            <span class="label label-default">
-              <%= supervisor.name %>
-            </span>
+    <div class="col-md-9">
+      <div class="block">
+        <h1 class="center">
+          <%= @course.name %>
+        </h1>
+        <p>
+          <%= t ".supervisors" %>
+          <% @supervisors.each do |supervisor| %>
+            <%= link_to supervisor do %>
+              <span class="label label-default">
+                <%= supervisor.name %>
+              </span>
+            <% end %>
           <% end %>
-        <% end %>
-      </p>
+        </p>
 
-      <div class="row">
-        <div class="col-md-12">
-          <% @subjects.each do |subject| %>
-            <div class="col-md-3">
-              <%= link_to find_user_subject @course_subjects, current_user,
-                subject do %>
-                <p><%= subject.name.truncate 50 %></p>
-              <% end %>
-            </div>
-          <% end %>
+        <div class="row">
+          <div class="col-md-12">
+            <% @subjects.each do |subject| %>
+              <div class="col-md-3">
+                <%= link_to find_user_subject @course_subjects, current_user,
+                  subject do %>
+                  <p><%= subject.name.truncate 50 %></p>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
         </div>
+        <p>
+          <%= @course.description %>
+        </p>
       </div>
-      <p>
-        <%= @course.description %>
-      </p>
+    </div>
+
+    <div class="col-md-3">
+      <div class="block">
+        <%= render "shared/activity_log", activities: @activities %>
+      </div>
     </div>
   </div>
 </div>

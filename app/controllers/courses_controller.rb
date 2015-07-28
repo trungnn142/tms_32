@@ -11,5 +11,6 @@ class CoursesController < ApplicationController
     @course_subjects = @course.user_subjects
     @supervisors = @course.users.supervisors
     @subjects = @course.subjects
+    @activities = @course.activities
   end
 end

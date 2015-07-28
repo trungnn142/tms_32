@@ -1,6 +1,4 @@
 class CourseSubject < ActiveRecord::Base
-  after_create :active_subject
-
   belongs_to :course
   belongs_to :subject
 
@@ -19,9 +17,5 @@ class CourseSubject < ActiveRecord::Base
 
   def destroy_subject_user
     course.user_subjects.filter_by_subject(subject_id).delete_all
-  end
-
-  def active_subject
-    subject.update_attributes is_active: true unless subject.is_active?
   end
 end
