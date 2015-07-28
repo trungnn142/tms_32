@@ -22,4 +22,9 @@ module ApplicationHelper
     link_to label, "#", onclick: "add_fields(this, \"#{assoc}\",
       \"#{escape_javascript(fields)}\")", remote: true
   end
+
+  def find_user_subject user_subjects, user, subject
+    user_subjects.detect{|user_subject| user_subject.user_id == user.id &&
+      user_subject.subject_id == subject.id}
+  end
 end

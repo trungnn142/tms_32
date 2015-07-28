@@ -11,7 +11,9 @@ en:
     general:
       TSM: "Tranning Manager System"
       TM: "Tranning Manager"
-      course: "Course"
+      courses: "Courses"
+      subject: "Subjects"
+      users: "Users"
       about: "About"
       login: "Log in"
       logout: "Log out"
@@ -34,6 +36,7 @@ en:
       remove: "Remove"
       update: "Update"
       update_users: "Update Users"
+      update_subjects: "Update Subjects"
       user_new: "Add Users"
       user_show: "Remove Users"
     flash:
@@ -56,6 +59,11 @@ en:
       users_updated: "Trainees of %{course} have been updated"
       users_updated_failed: "Failed to update trainees of %{course}"
       required_login: "You must login to view this resources"
+      edit_trainee_success: "Trainee has been updated successfully"
+      edit_trainee_failed: "Fail to delete trainee"
+      destroy_trainee_success: "Trainee has been deleted successfully"
+      destroy_trainee_failed: "Failed to delete trainee"
+      permission_denied: "Permission Denied!"
     messages:
       confirm: "Are you sure?"
       no_record: "No Record"
@@ -74,6 +82,8 @@ en:
       active: "Active"
     create:
       date_invalid: "can't be greater than end date"
+    show:
+      supervisors: "Supervisors: "
     index:
       course: "course"
       from: "From"
@@ -102,7 +112,8 @@ en:
         title: "All courses"
         name: "Name"
         description: "Description"
-        trainee_count: "Number of trainees"
+        user_count: "Number of users"
+        subject_count: "Number of subjects"
       new:
         title: "New course"
       edit:
@@ -117,12 +128,26 @@ en:
       show:
         title: "All Users Of %{course}"
         no_trainee: "No user found in this course"
+
+    course_subjects:
+      show:
+        subjects: "Update Subjects"
+
     subjects:
       edit:
         title: "Edit Subject"
+      new:
+        Name: "Name"
+        Position: "Position"
+      show:
+        task: "Task"
 
     users:
       new:
         title: "Create trainee"
         name: "Name"
         email: "Email"
+      edit:
+        edit_trainee: Edit trainee
+      index:
+        all_trainees: All trainees

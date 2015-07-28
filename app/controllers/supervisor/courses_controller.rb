@@ -26,11 +26,7 @@ class Supervisor::CoursesController < ApplicationController
   end
 
   def update
-    if params[:type] == "manage_users"
-      manage_users
-    else
-      update_course
-    end
+    params[:type] == "update_users" ? update_users : update_course
   end
 
   def destroy
@@ -52,7 +48,7 @@ class Supervisor::CoursesController < ApplicationController
     end
   end
 
-  def manage_users
+  def update_users
     if @course.update course_users_params
       flash[:success] = t "application.flash.users_updated",
         course: @course.name

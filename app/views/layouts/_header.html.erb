@@ -11,9 +11,14 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("application.general.course"), courses_path %></li>
         <li><%= link_to t("application.general.about"), about_path %></li>
         <% if logged_in? %>
+          <% if current_user.supervisor? %>
+            <%= render "layouts/supervisor_menu_items" %>
+          <% else %>
+            <li><%= link_to t("application.general.courses"), courses_path %></li>
+          <% end %>
+
           <li class="dropdown">
             <a href="#" class="dropdown-toggle profile-picture"
               data-toggle="dropdown" role="button" aria-haspopup="true"
