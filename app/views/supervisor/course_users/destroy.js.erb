@@ -1,5 +1,0 @@
-var parent = $("#update_user_<%=user.id%>").parent();
-parent.next("input[type='hidden']").remove();
-parent.remove();
-
-$("#flash").html("<%= escape_javascript(render('layouts/flash')) %>");

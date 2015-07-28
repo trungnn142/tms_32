@@ -1,15 +1,13 @@
-<h3>
-  <%= t ".title", course: @course.name %>
-  <span>
-    <%= link_to t("application.buttons.add_user"),
-      new_supervisor_course_course_user_path(@course), class: "btn btn-success" %>
-  </span>
-</h3>
-
-<% if @users.count > 0 %>
-  <%= render "form" %>
-<% else %>
+<div class="block">
   <h3>
-    <%= t ".no_trainee" %>
+    <%= t ".title", course: @course.name %>
   </h3>
-<% end %>
+
+  <% if @users.count > 0 %>
+    <%= render "form" %>
+  <% else %>
+    <h3>
+      <%= t ".no_trainee" %>
+    </h3>
+  <% end %>
+</div>

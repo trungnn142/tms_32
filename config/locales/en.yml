@@ -28,11 +28,12 @@ en:
       cancel: "Cancel"
       new_sub: "New Subject"
       view_sub: "View details >>"
-      add_user: "Add User"
+      add_user: "Add More User"
       view_user: "View All Users"
       add: "Add"
       remove: "Remove"
-      update_users: "Update"
+      update: "Update"
+      update_users: "Update Users"
       user_new: "Add Users"
       user_show: "Remove Users"
     flash:
@@ -57,6 +58,10 @@ en:
       required_login: "You must login to view this resources"
     messages:
       confirm: "Are you sure?"
+      no_record: "No Record"
+    tabs:
+      trainees: "Trainees"
+      supervisors: "Supervisors"
 
   sessions:
     new:
@@ -105,8 +110,7 @@ en:
 
     course_users:
       general:
-        hint_new: "Check checkboxes to add multiple trainees"
-        hint_show: "Check checkboxes to remove multiple trainees"
+        hint: "Check checkboxes to update multiple trainees"
       new:
         title: "Add User To %{course}"
         no_trainee: "No more user to add"
