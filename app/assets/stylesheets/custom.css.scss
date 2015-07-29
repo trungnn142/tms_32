@@ -186,7 +186,11 @@ legend {
 
 .thumbnail {
   height: 150px;
-  background-color: #76B45F;
+  background-color: #449D44;
+
+  &.thumbnail-disable {
+    background-color: #A9ADA8;
+  }
 }
 
 .course-detail {
@@ -237,5 +241,12 @@ legend {
   .date-format {
     color: red;
     font-size: 12px;
+  }
+}
+.label {
+  &.label-finish {
+    font-size: 20px;
+    background-color: #F0AD4E;
+    float: right;
   }
 }

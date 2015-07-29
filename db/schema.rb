@@ -59,9 +59,8 @@ ActiveRecord::Schema.define(version: 20150729094440) do
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
     t.text     "instruction"
-    t.boolean  "is_active",   default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "tasks", force: :cascade do |t|
