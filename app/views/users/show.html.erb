@@ -1,0 +1,24 @@
+<div class="row user-profile">
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-3">
+      <%= image_tag @user.avatar.medium.url, class: "img-responsive" %>
+        <% if @user.supervisor? %>
+          <div class="label label-danger"><%= t ".supervisor" %></div>
+        <% end %>
+      </div>
+      <div class="col-md-9">
+        <div class="row information">
+          <%= render "user_information" %>
+        </div>
+        <hr/>
+        <% @user.courses.each do |course| %>
+          <%= render "course", course: course %>
+          <% course.user_subjects.filter_by_user(@user).each do |user_subject| %>
+            <%= render "subject", course: course, subject: user_subject.subject, user_subject: user_subject %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

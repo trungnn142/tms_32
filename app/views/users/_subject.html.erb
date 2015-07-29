@@ -1,0 +1,28 @@
+<div class="row course-listing">
+  <div class="col-md-12">
+    <div class="name heading col-md-3">
+      <strong><%= subject.name %></strong>
+    </div>
+    <div class="col-md-5">
+      <%= t ".start date" %>:
+      <span class="date-format">
+        <%= course.start_date.strftime "%d %b" %> - <%= course.end_date.strftime "%d %b" %>
+      </span>
+    </div>
+    <div class="col-md-2">
+      <% if user_subject.finished? subject %>
+        <button class="btn btn-success disabled"><%= t "application.buttons.finished" %></button>
+      <% else %>
+        <button class="btn btn-danger disabled"><%= t "application.buttons.trainning" %></button>
+      <% end %>
+    </div>
+    <div class="col-md-2">
+      <% unless subject.tasks.empty? %>
+        <button class="btn btn-default btn-toggle"><%= t ".hide" %></button>
+      <% end %>
+    </div>
+  </div>
+  <% subject.tasks.each do|task| %>
+    <%= render "task", task: task, user_subject: user_subject %>
+  <% end %>
+</div>
