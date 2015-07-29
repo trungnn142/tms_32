@@ -8,4 +8,9 @@ class UserSubject < ActiveRecord::Base
 
   scope :filter_by_subject, ->subject_id{where subject_id: subject_id}
   scope :filter_by_user, ->user_id{where user_id: user_id}
+
+
+  def finished? user
+    self.user_tasks.count == user.tasks.filter_by_subject(subject).count
+  end
 end

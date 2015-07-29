@@ -4,6 +4,8 @@ class Course < ActiveRecord::Base
   has_many :course_subjects
   has_many :subjects, through: :course_subjects
   has_many :user_subjects
+  has_many :user_tasks, through: :user_subjects
+  has_many :tasks, through: :subjects
 
   validates :name, presence: true
   validates :description, presence: true, length: {minimum: 100}
@@ -31,5 +33,10 @@ class Course < ActiveRecord::Base
     if start_date > end_date
       errors.add(:start_date, t("courses.create.date_invalid"))
     end
+  end
+
+  def finished? user
+    user_tasks = self.user_tasks.filter_by_user user
+    user_tasks.count == self.tasks.count
   end
 end

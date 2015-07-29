@@ -10,4 +10,5 @@ class Subject < ActiveRecord::Base
 
   accepts_nested_attributes_for :tasks, allow_destroy: true,
     reject_if: proc {|a| a[:name].blank?}
+
 end
