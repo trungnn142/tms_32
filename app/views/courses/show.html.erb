@@ -15,7 +15,22 @@
             <% end %>
           <% end %>
         </p>
+        <p>
+          <%= t ".members" %>
+          <% @members.take(2).each do |member| %>
+            <span>
+              <%= link_to member do %>
+                <%= image_tag member.avatar.thumb.url, size: "20x20" %>
+              <% end %>
+            </span>
+          <% end %>
 
+          <% if @members.count > 2 %>
+            <a href="#" type="button" data-toggle="modal" data-target="#viewMembers">
+              <%= t ".view_all" %>
+            </a>
+          <% end %>
+        </p>
         <div class="row">
           <div class="col-md-12">
             <% @subjects.each do |subject| %>
@@ -42,3 +57,21 @@
   </div>
 </div>
 
+<div id="viewMembers" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t ".all_members", course: @course.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render "courses/members" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t "application.buttons.close" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
