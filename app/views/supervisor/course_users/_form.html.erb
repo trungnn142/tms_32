@@ -2,7 +2,7 @@
   <%= t "supervisor.course_users.general.hint" %>
 </p>
 
-<%= form_for @course, url: supervisor_course_path(@course, type: :manage_users) do |f| %>
+<%= form_for @course, url: supervisor_course_path(@course, type: :update_users) do |f| %>
   <div>
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active">

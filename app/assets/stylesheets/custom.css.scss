@@ -37,6 +37,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+.center {
+  text-align: center;
+}
+
 #about {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -183,4 +187,10 @@ legend {
 .thumbnail {
   height: 150px;
   background-color: #76B45F;
+}
+
+.course-detail {
+  .label {
+    margin-right: 5px;
+  }
 }

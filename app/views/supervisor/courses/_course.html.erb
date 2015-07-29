@@ -3,13 +3,20 @@
     <%= course.name %>
   </td>
   <td>
-    <%= course.description.truncate(100) %>
+    <%= course.description.truncate 100 %>
   </td>
   <td>
-    <%= link_to course.users.count, supervisor_course_course_user_path(course)  %>
+    <%= link_to course.users.count, supervisor_course_course_user_path(course) %>
   </td>
   <td>
-    <%= link_to t("application.buttons.update_user"),
+    <%= link_to course.subjects.count, supervisor_course_course_subject_path(course) %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.update_subjects"),
+      supervisor_course_course_subject_path(course), class: "btn btn-default" %>
+  </td>
+  <td>
+    <%= link_to t("application.buttons.update_users"),
       supervisor_course_course_user_path(course), class: "btn btn-success" %>
   </td>
   <td>
