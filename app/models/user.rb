@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :subjects, through: :user_subjects
   has_many :user_tasks
   has_many :tasks, through: :user_tasks
-  has_many :activities
+  has_many :activities, dependent: :destroy
 
   has_secure_password
 

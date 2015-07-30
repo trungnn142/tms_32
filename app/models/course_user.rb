@@ -1,4 +1,5 @@
 class CourseUser < ActiveRecord::Base
+  include Loggable
   belongs_to :course
   belongs_to :user
 
@@ -10,8 +11,8 @@ class CourseUser < ActiveRecord::Base
   scope :supervisors, -> {joins(:user).where("users.role = ?",
     User.roles[:supervisor])}
 
-  after_save :add_user_to_subjects
-  after_destroy :destroy_user_subjects
+  after_save :add_user_to_subjects, :create_course_assignment_log
+  after_destroy :destroy_user_subjects, :create_course_removal_log
 
   private
   def add_user_to_subjects
@@ -23,5 +24,13 @@ class CourseUser < ActiveRecord::Base
 
   def destroy_user_subjects
     course.user_subjects.filter_by_user(user_id).delete_all
+  end
+
+  def create_course_assignment_log
+    create_activity_log course_id, "course_assignment", course_id
+  end
+
+  def create_course_removal_log
+    create_activity_log course_id, "course_removal", course_id
   end
 end
