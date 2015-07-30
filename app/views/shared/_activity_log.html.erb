@@ -1,10 +1,14 @@
-<h2><%= t ".application.general.activity_log" %></h2>
-<% activities.each do |activity| %>
-  <p>
-    <%= link_to activity.user.name, activity.user %>
-    <%= t "activities.general.#{activity.action_type}", target: activity.target_name %>
-    <span class="small">
-      <%= t "application.general.timeago", time: time_ago_in_words(activity.created_at) %>
-    </span>
-  </p>
-<% end %>
+<div class="activity">
+  <h2><%= t ".application.general.activity_log" %></h2>
+  <div class="activity-list">
+    <%= render "shared/activities", activities: activities %>
+  </div>
+
+  <% if activities.next_page %>
+    <a id="load_more" href="#">
+      <%= t ".load_more" %>
+    </a>
+  <% end %>
+
+  <%= will_paginate activities, class: "hide pagination" %>
+</div>
