@@ -41,6 +41,7 @@ en:
       update_subjects: "Update Subjects"
       user_new: "Add Users"
       user_show: "Remove Users"
+      close: "Close"
     flash:
       login_success: "Login successfully"
       login_failed: "Invalid email or password!"
@@ -84,14 +85,17 @@ en:
       active: "Active"
     create:
       date_invalid: "can't be greater than end date"
-    show:
-      supervisors: "Supervisors: "
     index:
       course: "course"
       from: "From"
       to: "to"
       no_course: "You haven't been assigned to any course"
       enrolled_in: "You have been assigned to %{course_count}"
+    show:
+      all_members: "All members of %{course}"
+      supervisors: "Supervisors: "
+      members: "Members: "
+      view_all: "View all"
 
   activities:
     general:
