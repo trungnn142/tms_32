@@ -1,4 +1,4 @@
-class Supervisor::CourseUsersController < ApplicationController
+class Supervisor::CourseUsersController < Supervisor::BaseController
   before_action :load_course
 
   def show

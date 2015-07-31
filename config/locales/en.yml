@@ -116,6 +116,12 @@ en:
 
   supervisor:
     courses:
+      general:
+        supervisor: "Supervisor"
+        owner: "Owner"
+        status: "Status"
+        active: "Active"
+        unactive: "Unactive"
       show:
         start_date: "Start date"
         end_date: "End date"
@@ -127,6 +133,7 @@ en:
         description: "Description"
         user_count: "Number of users"
         subject_count: "Number of subjects"
+        permission: "Permission"
       new:
         title: "New course"
       edit:

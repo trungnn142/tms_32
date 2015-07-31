@@ -1,6 +1,5 @@
-class Supervisor::UsersController < ApplicationController
+class Supervisor::UsersController < Supervisor::BaseController
   before_action :load_user, except: [:index, :create, :new]
-  before_action :authorize_supervisor
 
   def index
     @users = User.trainees.paginate page: params[:page]
@@ -50,12 +49,5 @@ class Supervisor::UsersController < ApplicationController
 
   def load_user
     @user = User.find params[:id]
-  end
-
-  def authorize_supervisor
-    unless current_user.supervisor?
-      flash[:danger] = t "application.flash.permission_denied"
-      redirect_to root_url
-    end
   end
 end

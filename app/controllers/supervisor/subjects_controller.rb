@@ -1,4 +1,4 @@
-class Supervisor::SubjectsController < ApplicationController
+class Supervisor::SubjectsController < Supervisor::BaseController
   before_action :load_subject, except: [:index, :new, :create]
 
   def index

@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       log_in user
       params[:session][:remember] == "1" ? remember(user) : forget(user)
       flash[:success] = t "application.flash.login_success"
-      redirect_to root_url
+      user.supervisor? ? redirect_to(supervisor_root_url) : (redirect_to root_url)
     else
       flash[:danger] = t "application.flash.login_failed"
       render :new

@@ -1,8 +1,9 @@
-class Supervisor::CoursesController < ApplicationController
+class Supervisor::CoursesController < Supervisor::BaseController
   before_action :load_course, except: [:index, :new, :create]
+  before_action :authorize_owner, only: :destroy
 
   def index
-    @courses = Course.latest.paginate page: params[:page], per_page: 10
+    @courses = current_user.courses.latest.paginate page: params[:page], per_page: 10
   end
 
   def show
@@ -15,6 +16,7 @@ class Supervisor::CoursesController < ApplicationController
   def create
     @course = Course.new course_params
     if @course.save
+      @course.course_users.create user_id: current_user.id, is_owner: true
       flash[:success] = t "application.flash.course_created"
       redirect_to [:supervisor, @course]
     else
@@ -70,5 +72,12 @@ class Supervisor::CoursesController < ApplicationController
 
   def course_users_params
     params.require(:course).permit course_users_attributes: [:id, :user_id, :_destroy]
+  end
+
+  def authorize_owner
+    unless @course.owned_by? current_user
+      flash[:danger] = t "application.flash.permission_denied"
+      redirect_to supervisor_root_path
+    end
   end
 end
