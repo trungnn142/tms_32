@@ -40,4 +40,9 @@ class Course < ActiveRecord::Base
     user_tasks = self.user_tasks.filter_by_user user
     user_tasks.count == self.tasks.count
   end
+
+  def owned_by? user
+    !course_users.detect{|course_user| course_user.user_id == user.id &&
+      course_user.is_owner == true}
+  end
 end
