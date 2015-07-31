@@ -16,6 +16,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.activities.latest.paginate page: params[:page],
+      per_page: 5
+    respond_to do |format|
+      format.html
+      format.js { render "shared/activities" }
+    end
   end
 
   private

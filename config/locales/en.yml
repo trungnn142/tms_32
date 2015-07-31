@@ -22,6 +22,7 @@ en:
       subject: "Subject"
       activity_log: "Activity Log"
       timeago: "%{time} ago"
+      you: "You"
     buttons:
       save: "Save"
       submit: "Submit"
@@ -42,6 +43,10 @@ en:
       user_new: "Add Users"
       user_show: "Remove Users"
       close: "Close"
+      no_task: "No Task"
+      finished: "Finished"
+      training: "Training"
+      view_progress: "View Progress"
     flash:
       login_success: "Login successfully"
       login_failed: "Invalid email or password!"
@@ -111,6 +116,9 @@ en:
       save_change: "Save change"
       upload_image: "Upload a different photo..."
       edit_profile: "Edit profile"
+      change_password: "Change password"
+    show:
+      your_profile: "Your Profile"
 
   subjects:
 
@@ -171,3 +179,5 @@ en:
         edit_trainee: Edit trainee
       index:
         all_trainees: All trainees
+        user_progress: "User Progress"
+        no_course: "No course"

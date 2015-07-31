@@ -243,10 +243,17 @@ legend {
     font-size: 12px;
   }
 }
+
 .label {
   &.label-finish {
     font-size: 20px;
     background-color: #F0AD4E;
     float: right;
+  }
+}
+
+.activity {
+  #load_more {
+    display: block;
   }
 }

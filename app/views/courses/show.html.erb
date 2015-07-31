@@ -35,8 +35,7 @@
           <div class="col-md-12">
             <% @subjects.each do |subject| %>
               <div class="col-md-3">
-                <%= link_to find_user_subject @course_subjects, current_user,
-                  subject do %>
+                <%= link_to subject_user_subject_path(subject) do %>
                   <p><%= subject.name.truncate 50 %></p>
                 <% end %>
               </div>

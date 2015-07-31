@@ -27,7 +27,7 @@ function add_fields(link, association, content) {
   $(link).parent().before(content.replace(regexp, new_id));
 }
 
-$(document).ready(function() {
+$(document).on('page:change', function() {
   $(".user-profile").on("click", ".btn-toggle", function() {
     var parent = $(this).parents(".course-listing");
     parent.find(".item").toggleClass("hide");
@@ -36,5 +36,13 @@ $(document).ready(function() {
     } else {
       $(this).text("Show");
     }
-  })
+  });
+
+  $("#load_more").click(function(e){
+    e.preventDefault();
+    var url = $('.pagination .next_page').attr('href');
+    $.getScript(url);
+  });
 })
+
+
