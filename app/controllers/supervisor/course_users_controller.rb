@@ -5,7 +5,7 @@ class Supervisor::CourseUsersController < Supervisor::BaseController
     @users = User.all.paginate page: params[:page],
       per_page: 10
     @trainees = @users.trainees
-    @supervisors = @users.supervisors
+    @supervisors = @users.supervisors.excluded current_user
   end
 
   private
