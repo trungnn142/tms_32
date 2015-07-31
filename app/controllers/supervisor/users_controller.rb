@@ -20,7 +20,13 @@ class Supervisor::UsersController < Supervisor::BaseController
       flash[:danger] = t "application.flash.edit_trainee_failed"
       render :edit
     end
+  end
 
+  def show
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

@@ -1,0 +1,13 @@
+<% if @user.courses.count > 0 %>
+  <% @user.courses.active.each do |course| %>
+    <%= course.name %>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar"
+        data-percent="<%= number_to_percentage course.percent(@user), precision: 0 %>">
+        <%= number_to_percentage course.percent(@user), precision: 0  %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <h3><%= t "supervisor.users.index.no_course" %></h3>
+<% end %>

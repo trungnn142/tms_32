@@ -42,7 +42,12 @@ class Course < ActiveRecord::Base
   end
 
   def owned_by? user
-    !course_users.detect{|course_user| course_user.user_id == user.id &&
+    course_users.detect{|course_user| course_user.user_id == user.id &&
       course_user.is_owner == true}
+  end
+
+  def percent user
+    user_tasks = self.user_tasks.filter_by_user user
+    self.tasks.count > 0 ? user_tasks.count * 100 / self.tasks.count : 0
   end
 end

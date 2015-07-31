@@ -12,7 +12,7 @@
           <%= render "user_information" %>
         </div>
         <hr/>
-        <% @user.courses.each do |course| %>
+        <% @user.courses.active.each do |course| %>
           <%= render "course", course: course %>
           <% course.user_subjects.filter_by_user(@user).each do |user_subject| %>
             <%= render "subject", course: course, subject: user_subject.subject, user_subject: user_subject %>
