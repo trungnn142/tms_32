@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
     resources :subjects
     resources :users
+    resource :uploads, only: [:create]
   end
 
   resources :users

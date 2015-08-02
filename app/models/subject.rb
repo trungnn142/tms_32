@@ -1,4 +1,5 @@
 class Subject < ActiveRecord::Base
+  include PrettyUrl
   has_many :user_subjects
   has_many :users, through: :user_subjects
   has_many :course_subjects
@@ -10,5 +11,4 @@ class Subject < ActiveRecord::Base
 
   accepts_nested_attributes_for :tasks, allow_destroy: true,
     reject_if: proc {|a| a[:name].blank?}
-
 end

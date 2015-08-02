@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+  include PrettyUrl
   has_many :course_users, dependent: :destroy, inverse_of: :course
   has_many :users, through: :course_users
   has_many :course_subjects

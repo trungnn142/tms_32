@@ -53,5 +53,4 @@ class User < ActiveRecord::Base
   def default_password
     self.password = "Tms32@2015" if self.trainee?
   end
-
 end
