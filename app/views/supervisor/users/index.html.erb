@@ -1,9 +1,23 @@
-<h1>
-  <%= t ".all_trainees" %>
-</h1>
-<span>
-  <%= link_to t("application.buttons.create_trainee"), new_supervisor_user_path, class: "btn btn-primary" %>
-</span>
+<div class="page-header">
+  <%= form_tag supervisor_uploads_path, multipart: true, class: "form-inline pull-right" do %>
+    <div class="input-group">
+      <span class="input-group-btn">
+        <%= link_to t("application.buttons.create_trainee"), new_supervisor_user_path,
+          class: "btn btn-primary" %>
+        <%= submit_tag t(".import"),class: "btn btn-success" %>
+      </span>
+      <input type="text" class="form-control" readonly>
+      <span class="input-group-btn">
+        <span class="btn btn-default btn-file">
+          <i class="glyphicon glyphicon-folder-open"></i>
+          <%= file_field_tag :file %>
+        </span>
+      </span>
+    </div>
+  <% end %>
+  <h2><%= t ".all_trainees" %></h2>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>

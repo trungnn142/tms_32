@@ -72,6 +72,8 @@ en:
       destroy_trainee_success: "Trainee has been deleted successfully"
       destroy_trainee_failed: "Failed to delete trainee"
       permission_denied: "Permission Denied!"
+      import_success: "User imported successfully"
+      import_failed: "Import failed!!!"
     messages:
       confirm: "Are you sure?"
       no_record: "No Record"
@@ -181,3 +183,4 @@ en:
         all_trainees: All trainees
         user_progress: "User Progress"
         no_course: "No course"
+        import: "Import CSV"
