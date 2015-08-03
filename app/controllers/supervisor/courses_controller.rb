@@ -28,7 +28,14 @@ class Supervisor::CoursesController < Supervisor::BaseController
   end
 
   def update
-    params[:type] == "update_users" ? update_users : update_course
+    case params[:type]
+    when "update_users"
+      update_users
+    when "close_course"
+      close_course
+    else
+      update_course
+    end
   end
 
   def destroy
@@ -60,6 +67,17 @@ class Supervisor::CoursesController < Supervisor::BaseController
       flash[:warning] = @course.errors.full_messages.join(", ")
     end
     redirect_to :back
+  end
+
+  def close_course
+    if @course.update_attributes closed: true
+      flash[:success] = t "application.flash.closed_success",
+        course: @course.name
+    else
+      flash[:danger] = t "application.flash.closed_failed",
+        course: @course.name
+    end
+    redirect_to supervisor_courses_path
   end
 
   def load_course
