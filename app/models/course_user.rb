@@ -4,6 +4,7 @@ class CourseUser < ActiveRecord::Base
   belongs_to :user
 
   validates :course_id, uniqueness: {scope: :user_id}
+  validate :only_assigned_to_one_active_course
 
   scope :has_user, -> user {find_by user_id: user.id}
   scope :trainees, -> {joins(:user).where("users.role = ?",
@@ -32,5 +33,13 @@ class CourseUser < ActiveRecord::Base
 
   def create_course_removal_log
     create_activity_log course_id, "course_removal", course_id
+  end
+
+  def only_assigned_to_one_active_course
+    user = User.find user_id
+    if user.courses.active.count > 0
+      errors.add :base,
+        I18n.t("application.flash.only_assigned_to_one_active_course", user: user.name)
+    end
   end
 end

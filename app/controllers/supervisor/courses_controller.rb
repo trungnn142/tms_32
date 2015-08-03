@@ -57,6 +57,7 @@ class Supervisor::CoursesController < Supervisor::BaseController
     else
       flash[:danger] = t "application.flash.users_updated_failed",
         course: @course.name
+      flash[:warning] = @course.errors.full_messages.join(", ")
     end
     redirect_to :back
   end

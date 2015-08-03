@@ -1,11 +1,13 @@
 en:
   activerecord:
     attributes:
-      course:
+      courses:
         name: "Name"
         description: "Description"
         start_date: "Start date"
         end_date: "End date"
+      course_users:
+        base: ""
 
   application:
     general:
@@ -74,6 +76,7 @@ en:
       permission_denied: "Permission Denied!"
       import_success: "User imported successfully"
       import_failed: "Import failed!!!"
+      only_assigned_to_one_active_course: "%{user} has already been assigned to one active course"
     messages:
       confirm: "Are you sure?"
       no_record: "No Record"
