@@ -7,7 +7,7 @@
 <div class="row">
   <% @subjects.each do |subject| %>
     <div class="col-lg-4">
-      <h3><%= subject.name %></h3>
+      <h4><%= subject.name %></h4>
       <p><%= subject.instruction.truncate(70) %></p>
       <p><%= link_to t("application.buttons.view_sub"), [:supervisor, subject],
         class: "btn btn-primary" %></p>

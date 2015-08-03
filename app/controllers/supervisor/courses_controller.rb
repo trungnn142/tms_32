@@ -33,6 +33,8 @@ class Supervisor::CoursesController < Supervisor::BaseController
       update_users
     when "close_course"
       close_course
+    when "update_subjects"
+      update_subjects
     else
       update_course
     end
@@ -69,6 +71,15 @@ class Supervisor::CoursesController < Supervisor::BaseController
     redirect_to :back
   end
 
+  def update_subjects
+    if @course.update course_subject_params
+      flash[:success] = t "application.flash.subject_update_success"
+    else
+      flash[:danger] = t "application.flash.subject_update_failed"
+    end
+    redirect_to :back
+  end
+
   def close_course
     if @course.update_attributes closed: true
       flash[:success] = t "application.flash.closed_success",
@@ -86,7 +97,11 @@ class Supervisor::CoursesController < Supervisor::BaseController
 
   def course_params
     params.require(:course).permit :name, :description, :start_date, :end_date,
-      :is_active, subject_ids: []
+      :is_active
+  end
+
+  def course_subject_params
+    params.require(:course).permit subject_ids: []
   end
 
   def course_users_params

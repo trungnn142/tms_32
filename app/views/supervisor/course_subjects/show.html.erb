@@ -1,6 +1,6 @@
 <h1><%= t ".subjects" %></h1>
 
-<%= form_for @course, url: supervisor_course_path(@course) do |f| %>
+<%= form_for @course, url: supervisor_course_path(@course, type: "update_subjects") do |f| %>
   <table class="table table-striped">
     <thead>
       <tr>

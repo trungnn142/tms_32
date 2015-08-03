@@ -4,7 +4,7 @@
       <div class="block">
         <h1 class="center">
           <%= @course.name %>
-          <% render "shared/course_closed" %>
+          <% render "shared/course_closed", course: @course %>
         </h1>
         <p>
           <%= t ".supervisors" %>

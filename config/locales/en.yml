@@ -80,6 +80,8 @@ en:
       only_assigned_to_one_active_course: "%{user} has already been assigned to one active course"
       closed_success: "Close course successfully"
       closed_failed: "Can't close course"
+      subject_update_success: "Update subjects successfully"
+      subject_update_failed: "Update subjects failed"
     messages:
       confirm: "Are you sure?"
       no_record: "No Record"

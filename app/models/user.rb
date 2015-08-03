@@ -51,6 +51,6 @@ class User < ActiveRecord::Base
 
   private
   def default_password
-    self.password = "Tms32@2015" if self.trainee?
+    self.password = "Tms32@2015" if self.trainee? && !self.password_digest
   end
 end
