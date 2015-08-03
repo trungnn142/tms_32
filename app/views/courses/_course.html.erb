@@ -4,9 +4,9 @@
       <%= link_to course do %>
         <h3>
           <%= course.name %>
+          <% render "shared/course_closed" %>
         </h3>
       <% end %>
-
       <p>
         <span>
           <i class="glyphicon glyphicon-calendar"></i>

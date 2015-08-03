@@ -1,6 +1,9 @@
 <% provide :title, t("application.general.subject") %>
 <div class="page-header">
-  <h2><%= @subject.name %></h2>
+  <h2>
+    <%= @subject.name %>
+    <% render "shared/course_closed", course: @user_subject.course %>
+  </h2>
   <div class="progress">
     <div class="progress-bar progress-bar-success progress-bar-striped"
       style="width: <%= percent_complete_subject(@user_subject) %>">
@@ -23,7 +26,7 @@
                 <% if builder.object.id.nil? %>
                   <div class="thumbnail text-center">
                     <h4><%= builder.object.task.name %></h4>
-                    <p><%= builder.check_box :task_id, {checked: false, disabled: false},
+                    <p><%= builder.check_box :task_id, {checked: false, disabled: @user_subject.course.closed?},
                       builder.object.task.id %></p>
                     <%= builder.hidden_field :user_id, value: @user_id %>
                   </div>
@@ -38,7 +41,7 @@
           </div>
           <div class="row text-center">
             <%= f.submit t("application.buttons.submit"), class: "btn btn-danger",
-              disabled: percent_complete_subject(@user_subject) == "100%" %>
+              disabled: percent_complete_subject(@user_subject) == "100%" || @user_subject.course.closed? %>
           </div>
         <% end %>
       <% end %>

@@ -37,7 +37,7 @@ class CourseUser < ActiveRecord::Base
 
   def only_assigned_to_one_active_course
     user = User.find user_id
-    if user.courses.active.count > 0
+    if user.courses.active.count > 0 && user.trainee?
       errors.add :base,
         I18n.t("application.flash.only_assigned_to_one_active_course", user: user.name)
     end

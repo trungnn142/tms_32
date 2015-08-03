@@ -45,6 +45,7 @@ en:
       user_new: "Add Users"
       user_show: "Remove Users"
       close: "Close"
+      closed: "Closed"
       no_task: "No Task"
       finished: "Finished"
       training: "Training"
@@ -77,6 +78,8 @@ en:
       import_success: "User imported successfully"
       import_failed: "Import failed!!!"
       only_assigned_to_one_active_course: "%{user} has already been assigned to one active course"
+      closed_success: "Close course successfully"
+      closed_failed: "Can't close course"
     messages:
       confirm: "Are you sure?"
       no_record: "No Record"
